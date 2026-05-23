@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - NovaPhones</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">NovaPhones</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+
+        <a href="cart.html">
+            Cart (<span class="cart-count">0</span>)
+        </a>
+    </nav>
+
+</header>
+
+<section class="shop-page">
+
+    <h1>Latest Smartphones</h1>
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Search phones..."
+        onkeyup="searchProducts()">
+
+    </div>
+
+    <div class="products">
+        <div class="no-results" id="noResults">
+
+            <h2>
+                Product Not Found
+            </h2>
+
+            <p>
+                Not all products are listed on our website.
+                Contact us directly for more available devices.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a href="https://wa.me/YOURNUMBER"
+                target="_blank"
+                class="contact-btn whatsapp-btn">
+
+                    WhatsApp
+
+                </a>
+
+                <a href="https://signal.me/#YOURUSERNAME"
+                target="_blank"
+                class="contact-btn signal-btn">
+
+                    Signal
+
+                </a>
+
+                <a href="mailto:youremail@example.com"
+                class="contact-btn email-btn">
+
+                    Email
+
+                </a>
+
+            </div>
+
+        </div>
+        
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/cocaine.jpg"
+            onclick="openPreview(
+            'images/cocaine.jpg',
+            'Asus ROG Phone 9',
+            '$1399',
+            'Gaming beast with powerful cooling and ultra fast display.'
+            )">
+
+            <h3>Asus ROG Phone 9</h3>
+
+            <p>$1399</p>
+
+            <button onclick="addToCart(
+            'Asus ROG Phone 9',
+            1399,
+            'images/cocaine.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/Zkittlez.jpg"
+            onclick="openPreview(
+            'images/Zkittlez.jpg',
+            'iPhone 15 Pro Max',
+            '$1199',
+            'Powerful Apple flagship with premium cameras and ultra smooth performance.'
+            )">
+
+            <h3>iPhone 15 Pro Max</h3>
+
+            <p>$1199</p>
+
+            <button onclick="addToCart(
+            'iPhone 15 Pro Max',
+            1199,
+            'images/Zkittlez.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/white-widow.jpeg"
+            onclick="openPreview(
+            'images/white-widow.jpeg',
+            'Samsung Galaxy S25 Ultra',
+            '$1299',
+            'Premium Android flagship with stunning display and advanced camera system.'
+            )">
+
+            <h3>Samsung Galaxy S25 Ultra</h3>
+
+            <p>$1299</p>
+
+            <button onclick="addToCart(
+            'Samsung Galaxy S25 Ultra',
+            1299,
+            'images/white-widow.jpeg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/vape.jpg"
+            onclick="openPreview(
+            'images/vape.jpg',
+            'Google Pixel 10 Pro',
+            '$899',
+            'Clean Android experience with amazing AI powered photography.'
+            )">
+
+            <h3>Google Pixel 10 Pro</h3>
+
+            <p>$899</p>
+
+            <button onclick="addToCart(
+            'Google Pixel 10 Pro',
+            899,
+            'images/vape.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/purple-haze.jpeg"
+            onclick="openPreview(
+            'images/purple-haze.jpeg',
+            'Xiaomi 15 Ultra',
+            '$799',
+            'Fast performance smartphone with premium design and battery life.'
+            )">
+
+            <h3>Xiaomi 15 Ultra</h3>
+
+            <p>$799</p>
+
+            <button onclick="addToCart(
+            'Xiaomi 15 Ultra',
+            799,
+            'images/purple-haze.jpeg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/pinkleechyvape.jpg"
+            onclick="openPreview(
+            'images/pinkleechyvape.jpg',
+            'OnePlus 14',
+            '$749',
+            'Smooth fast smartphone designed for performance lovers.'
+            )">
+
+            <h3>OnePlus 14</h3>
+
+            <p>$749</p>
+
+            <button onclick="addToCart(
+            'OnePlus 14',
+            749,
+            'images/pinkleechyvape.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/pinkleechy.avif"
+            onclick="openPreview(
+            'images/pinkleechy.avif',
+            'Huawei Mate 70',
+            '$999',
+            'Elegant smartphone with premium camera technology.'
+            )">
+
+            <h3>Huawei Mate 70</h3>
+
+            <p>$999</p>
+
+            <button onclick="addToCart(
+            'Huawei Mate 70',
+            999,
+            'images/pinkleechy.avif'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <!-- EXTRA PRODUCTS -->
+
+        <div class="product fade-in">
+
+            <img src="images/og-kush.webp"
+            onclick="openPreview(
+            'images/og-kush.webp',
+            'Nothing Phone 3',
+            '$699',
+            'Unique transparent design with premium performance.'
+            )">
+
+            <h3>Nothing Phone 3</h3>
+
+            <p>$699</p>
+
+            <button onclick="addToCart(
+            'Nothing Phone 3',
+            699,
+            'images/og-kush.webp'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <div class="product fade-in">
+
+            <img src="images/cookies.jpg"
+            onclick="openPreview(
+            'images/cookies.jpg',
+            'Asus ROG Phone 9',
+            '$1399',
+            'Gaming beast with powerful cooling and ultra fast display.'
+            )">
+
+            <h3>Asus ROG Phone 9</h3>
+
+            <p>$1399</p>
+
+            <button onclick="addToCart(
+            'Asus ROG Phone 9',
+            1399,
+            'images/cookies.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- IMAGE PREVIEW -->
+
+<div class="preview-modal" id="previewModal">
+
+    <span class="close-preview"
+    onclick="closePreview()">
+        ×
+    </span>
+
+    <div class="preview-content">
+
+        <img id="previewImage">
+
+        <div class="preview-details">
+
+            <h2 id="previewTitle"></h2>
+
+            <p id="previewPrice"></p>
+
+            <p id="previewDescription"></p>
+
+            <div class="preview-buttons">
+
+                <button id="previewCartBtn">
+                    Add To Cart
+                </button>
+
+                <a href="cart.html" class="buy-btn">
+                    View Cart
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 NovaPhones. All Rights Reserved.</p>
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

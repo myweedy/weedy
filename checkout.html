@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NovaPhones</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">NovaPhones</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">
+            Cart (<span class="cart-count">0</span>)
+        </a>
+    </nav>
+
+</header>
+
+<section class="checkout-page">
+
+    <h1>Checkout</h1>
+
+    <form name="checkout" method="POST" data-netlify="true">
+
+        <input type="hidden" name="form-name" value="checkout">
+
+        <input type="text"
+        id="customerName"
+        placeholder="Name"
+        required>
+
+        <!-- CONTACT METHOD -->
+
+        <select id="contactMethod"
+        onchange="showContactField()"
+        required>
+
+            <option value="">
+                Preferred Contact Method
+            </option>
+
+            <option value="whatsapp">
+                WhatsApp
+            </option>
+
+            <option value="signal">
+                Signal
+            </option>
+
+            <option value="email">
+                Email
+            </option>
+
+        </select>
+
+        <!-- DYNAMIC FIELD -->
+
+        <div id="contactFieldBox"></div>
+
+        <textarea
+        placeholder="Shipping Address"></textarea>
+
+        <!-- CONTACT -->
+
+        <select required>
+
+            <option>Select Contact Method</option>
+
+            <option>WhatsApp</option>
+
+            <option>Signal</option>
+
+            <option>Email</option>
+
+            <option>Telegram</option>
+
+        </select>
+
+        <!-- PAYMENT -->
+
+        <h2 class="payment-title">
+            Select Payment Method
+        </h2>
+
+        <select id="paymentMethod"
+        onchange="showPaymentDetails()"
+        required>
+
+            <option value="">
+                Choose Payment Method
+            </option>
+
+            <option value="btc">
+                Bitcoin (BTC)
+            </option>
+
+            <option value="usdt">
+                USDT (ERC20)
+            </option>
+
+            <option value="eth">
+                Ethereum (ETH)
+            </option>
+
+            <option value="giftcard">
+                Gift Cards
+            </option>
+
+        </select>
+
+        <!-- BTC -->
+
+        <div class="payment-box" id="btcBox">
+
+            <h3>Bitcoin (BTC)</h3>
+
+            <img src="images/btc-qr.png"
+            class="payment-qr">
+
+            <p>
+                Network: BTC
+            </p>
+
+            <p>
+                Wallet Address:
+            </p>
+
+            <div class="wallet-box">
+                bc1examplewalletaddress123456789
+            </div>
+
+            <p class="warning">
+                Send ONLY Bitcoin (BTC)
+                to this address using the BTC network.
+            </p>
+
+        </div>
+
+        <!-- USDT -->
+
+        <div class="payment-box" id="usdtBox">
+
+            <h3>USDT (ERC20)</h3>
+
+            <img src="images/usdt-qr.png"
+            class="payment-qr">
+
+            <p>
+                Network: ERC20
+            </p>
+
+            <p>
+                Wallet Address:
+            </p>
+
+            <div class="wallet-box">
+                0xexampleerc20wallet123456789
+            </div>
+
+            <p class="warning">
+                Send ONLY USDT using ERC20 network.
+            </p>
+
+        </div>
+
+        <!-- ETH -->
+
+        <div class="payment-box" id="ethBox">
+
+            <h3>Ethereum (ETH)</h3>
+
+            <img src="images/eth-qr.png"
+            class="payment-qr">
+
+            <p>
+                Network: ETH
+            </p>
+
+            <p>
+                Wallet Address:
+            </p>
+
+            <div class="wallet-box">
+                0xexampleethwallet123456789
+            </div>
+
+            <p class="warning">
+                Send ONLY Ethereum (ETH)
+                to this wallet.
+            </p>
+
+        </div>
+
+        <!-- GIFTCARD -->
+
+        <div class="payment-box" id="giftcardBox">
+
+            <h3>Apple / iTunes Gift Cards</h3>
+
+            <img src="images/giftcard-example.jpg"
+            class="giftcard-image">
+
+            <p>
+                Purchase Apple or iTunes gift cards
+                from trusted stores or online platforms.
+            </p>
+
+            <p>
+                Scratch the card carefully to reveal
+                the redemption code.
+            </p>
+
+            <p>
+                Send the revealed code through
+                WhatsApp, Signal or Email after purchase.
+            </p>
+
+            <p class="warning">
+                Do not send damaged or unreadable codes.
+            </p>
+
+        </div>
+
+        <textarea
+        placeholder="Additional Notes"></textarea>
+
+        <button type="button"
+        onclick="submitOrder()">
+            Place Order
+        </button>
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 NovaPhones. All Rights Reserved.</p>
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
