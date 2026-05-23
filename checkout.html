@@ -1,45 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - NovaPhones</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Checkout - GigiPlug
+    </title>
+
+    <link rel="stylesheet"
+    href="css/style.css">
+
 </head>
 <body>
 
 <header>
 
-    <div class="logo">NovaPhones</div>
+    <div class="logo">
+        GigiPlug
+    </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="cart.html">
-            Cart (<span class="cart-count">0</span>)
+
+        <a href="index.html">
+            Home
         </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="cart.html">
+
+            Cart (
+            <span class="cart-count">
+                0
+            </span>
+            )
+
+        </a>
+
     </nav>
 
 </header>
 
 <section class="checkout-page">
 
-    <h1>Checkout</h1>
+    <h1>
+        Checkout
+    </h1>
 
-    <form name="checkout" method="POST" data-netlify="true">
+    <form
+    name="checkout"
+    method="POST"
+    data-netlify="true"
+    enctype="multipart/form-data">
 
-        <input type="hidden" name="form-name" value="checkout">
+        <input
+        type="hidden"
+        name="form-name"
+        value="checkout">
 
-        <input type="text"
+        <!-- NAME -->
+
+        <input
+        type="text"
         id="customerName"
+        name="name"
         placeholder="Name"
         required>
 
         <!-- CONTACT METHOD -->
 
-        <select id="contactMethod"
+        <select
+        id="contactMethod"
         onchange="showContactField()"
+        name="contact_method"
         required>
 
             <option value="">
@@ -60,37 +99,181 @@
 
         </select>
 
-        <!-- DYNAMIC FIELD -->
+        <!-- DYNAMIC CONTACT -->
 
         <div id="contactFieldBox"></div>
 
+        <!-- COUNTRY -->
+
+        <select
+            name="country"
+            id="countrySelect"
+            onchange="calculateDelivery()"
+            required>
+
+                <option value="">
+                    Select Country
+                </option>
+
+                <!-- NORTH AMERICA -->
+
+                <option>United States</option>
+                <option>Canada</option>
+                <option>Mexico</option>
+                <option>Greenland</option>
+                <option>Jamaica</option>
+                <option>Costa Rica</option>
+                <option>Panama</option>
+                <option>Guatemala</option>
+                <option>Honduras</option>
+                <option>El Salvador</option>
+                <option>Nicaragua</option>
+                <option>Belize</option>
+                <option>Dominican Republic</option>
+                <option>Cuba</option>
+                <option>Haiti</option>
+
+                <!-- SOUTH AMERICA -->
+
+                <option>Brazil</option>
+                <option>Argentina</option>
+                <option>Chile</option>
+                <option>Colombia</option>
+                <option>Peru</option>
+                <option>Venezuela</option>
+                <option>Uruguay</option>
+                <option>Paraguay</option>
+                <option>Bolivia</option>
+                <option>Ecuador</option>
+                <option>Guyana</option>
+                <option>Suriname</option>
+
+                <!-- EUROPE -->
+
+                <option>United Kingdom</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Italy</option>
+                <option>Spain</option>
+                <option>Portugal</option>
+                <option>Netherlands</option>
+                <option>Belgium</option>
+                <option>Switzerland</option>
+                <option>Austria</option>
+                <option>Poland</option>
+                <option>Sweden</option>
+                <option>Norway</option>
+                <option>Denmark</option>
+                <option>Finland</option>
+                <option>Ireland</option>
+                <option>Greece</option>
+                <option>Romania</option>
+                <option>Hungary</option>
+                <option>Ukraine</option>
+                <option>Czech Republic</option>
+                <option>Slovakia</option>
+                <option>Croatia</option>
+                <option>Serbia</option>
+                <option>Bulgaria</option>
+                <option>Slovenia</option>
+                <option>Estonia</option>
+                <option>Latvia</option>
+                <option>Lithuania</option>
+                <option>Luxembourg</option>
+                <option>Iceland</option>
+
+                <!-- ASIA -->
+
+                <option>China</option>
+                <option>Japan</option>
+                <option>South Korea</option>
+                <option>India</option>
+                <option>Pakistan</option>
+                <option>Bangladesh</option>
+                <option>Nepal</option>
+                <option>Sri Lanka</option>
+                <option>Thailand</option>
+                <option>Vietnam</option>
+                <option>Malaysia</option>
+                <option>Singapore</option>
+                <option>Indonesia</option>
+                <option>Philippines</option>
+                <option>Cambodia</option>
+                <option>Laos</option>
+                <option>Myanmar</option>
+                <option>Mongolia</option>
+                <option>Kazakhstan</option>
+                <option>Uzbekistan</option>
+                <option>Turkmenistan</option>
+                <option>Tajikistan</option>
+
+                <!-- MIDDLE EAST -->
+
+                <option>United Arab Emirates</option>
+                <option>Saudi Arabia</option>
+                <option>Qatar</option>
+                <option>Kuwait</option>
+                <option>Oman</option>
+                <option>Bahrain</option>
+                <option>Israel</option>
+                <option>Turkey</option>
+                <option>Jordan</option>
+                <option>Lebanon</option>
+                <option>Iraq</option>
+                <option>Iran</option>
+
+                <!-- AFRICA -->
+
+                <option>Nigeria</option>
+                <option>South Africa</option>
+                <option>Kenya</option>
+                <option>Ghana</option>
+                <option>Egypt</option>
+                <option>Morocco</option>
+                <option>Ethiopia</option>
+                <option>Uganda</option>
+                <option>Tanzania</option>
+                <option>Algeria</option>
+                <option>Tunisia</option>
+                <option>Libya</option>
+                <option>Cameroon</option>
+                <option>Senegal</option>
+                <option>Rwanda</option>
+                <option>Zimbabwe</option>
+                <option>Zambia</option>
+                <option>Namibia</option>
+                <option>Botswana</option>
+                <option>Ivory Coast</option>
+
+                <!-- OCEANIA -->
+
+                <option>Australia</option>
+                <option>New Zealand</option>
+                <option>Fiji</option>
+                <option>Papua New Guinea</option>
+                <option>Samoa</option>
+
+            </select>
+
+        <!-- ADDRESS -->
+
         <textarea
-        placeholder="Shipping Address"></textarea>
-
-        <!-- CONTACT -->
-
-        <select required>
-
-            <option>Select Contact Method</option>
-
-            <option>WhatsApp</option>
-
-            <option>Signal</option>
-
-            <option>Email</option>
-
-            <option>Telegram</option>
-
-        </select>
+        name="shipping_address"
+        placeholder="Shipping Address"
+        required></textarea>
 
         <!-- PAYMENT -->
 
         <h2 class="payment-title">
+
             Select Payment Method
+
         </h2>
 
-        <select id="paymentMethod"
-        onchange="showPaymentDetails()"
+        <select
+        id="paymentMethod"
+        name="payment_method"
+        onchange="showPaymentDetails(); calculateDelivery();"
         required>
 
             <option value="">
@@ -114,31 +297,66 @@
             </option>
 
         </select>
+        <!-- TOTAL BOX -->
+
+        <div class="delivery-box">
+
+            <h3 id="deliveryText">
+
+                Delivery Fee:
+                Select country first
+
+            </h3>
+
+            <h2 id="finalTotal">
+
+                Final Total:
+                $0
+
+            </h2>
+
+        </div>
 
         <!-- BTC -->
 
         <div class="payment-box" id="btcBox">
 
-            <h3>Bitcoin (BTC)</h3>
+            <h3>
+                Bitcoin (BTC)
+            </h3>
 
-            <img src="images/btc-qr.png"
+            <img
+            src="images/btcqr.png"
             class="payment-qr">
 
             <p>
                 Network: BTC
             </p>
 
-            <p>
-                Wallet Address:
-            </p>
-
             <div class="wallet-box">
-                bc1examplewalletaddress123456789
+
+                <span id="btcAddress">
+
+                    bc1qm05ns5uuy7kvku2mrv3zh2zjnvwpw4qqzvwsf5
+
+                </span>
+
+                <button
+                type="button"
+                class="copy-btn"
+                onclick="copyAddress('btcAddress')">
+
+                    Copy
+
+                </button>
+
             </div>
 
             <p class="warning">
-                Send ONLY Bitcoin (BTC)
-                to this address using the BTC network.
+
+                Send ONLY BTC using BTC network.
+                 <a href="index.html#cb">further assist? please contact us</a>
+
             </p>
 
         </div>
@@ -147,25 +365,42 @@
 
         <div class="payment-box" id="usdtBox">
 
-            <h3>USDT (ERC20)</h3>
+            <h3>
+                USDT (ERC20)
+            </h3>
 
-            <img src="images/usdt-qr.png"
+            <img
+            src="images/usdtqr.png"
             class="payment-qr">
 
             <p>
                 Network: ERC20
             </p>
 
-            <p>
-                Wallet Address:
-            </p>
-
             <div class="wallet-box">
-                0xexampleerc20wallet123456789
+
+                <span id="usdtAddress">
+
+                    0x1a4C1B630b9f8adFa228f6dC44296c618A54f548
+
+                </span>
+
+                <button
+                type="button"
+                class="copy-btn"
+                onclick="copyAddress('usdtAddress')">
+
+                    Copy
+
+                </button>
+
             </div>
 
             <p class="warning">
-                Send ONLY USDT using ERC20 network.
+
+                Send ONLY ERC20 USDT.
+                 <a href="index.html#cb">further assist? please contact us</a>
+
             </p>
 
         </div>
@@ -174,26 +409,42 @@
 
         <div class="payment-box" id="ethBox">
 
-            <h3>Ethereum (ETH)</h3>
+            <h3>
+                Ethereum (ETH)
+            </h3>
 
-            <img src="images/eth-qr.png"
+            <img
+            src="images/ethqr.png"
             class="payment-qr">
 
             <p>
                 Network: ETH
             </p>
 
-            <p>
-                Wallet Address:
-            </p>
-
             <div class="wallet-box">
-                0xexampleethwallet123456789
+
+                <span id="ethAddress">
+
+                    0x1a4C1B630b9f8adFa228f6dC44296c618A54f548
+
+                </span>
+
+                <button
+                type="button"
+                class="copy-btn"
+                onclick="copyAddress('ethAddress')">
+
+                    Copy
+
+                </button>
+
             </div>
 
             <p class="warning">
-                Send ONLY Ethereum (ETH)
-                to this wallet.
+
+                Send ONLY ETH using ETH network.
+                 <a href="index.html#cb">further assist? please contact us</a>
+
             </p>
 
         </div>
@@ -202,38 +453,77 @@
 
         <div class="payment-box" id="giftcardBox">
 
-            <h3>Apple / iTunes Gift Cards</h3>
+            <h3>
+                Apple / iTunes Gift Cards
+            </h3>
 
-            <img src="images/giftcard-example.jpg"
+            <img
+            src="images/card.jpg"
             class="giftcard-image">
 
             <p>
-                Purchase Apple or iTunes gift cards
-                from trusted stores or online platforms.
+
+                Buy Apple or iTunes gift cards
+                from trusted stores.
+
             </p>
 
             <p>
-                Scratch the card carefully to reveal
-                the redemption code.
-            </p>
 
-            <p>
-                Send the revealed code through
-                WhatsApp, Signal or Email after purchase.
+                Reveal the redemption code
+                and send it through your
+                selected contact method.
+
             </p>
 
             <p class="warning">
-                Do not send damaged or unreadable codes.
+
+                Do not send unreadable codes.
+                <a href="index.html#cb">further assist please contact us</a>
+
             </p>
 
         </div>
 
+        <!-- SCREENSHOT -->
+
+        <div class="upload-box">
+
+            <label>
+
+                Upload Payment Screenshot
+
+            </label>
+
+            <input
+            type="file"
+            id="paymentScreenshot"
+            name="payment_screenshot"
+            accept="image/*">
+
+            <p class="upload-note">
+
+                Upload payment proof
+                for faster verification.
+
+            </p>
+
+        </div>
+
+        <!-- NOTES -->
+
         <textarea
+        name="notes"
         placeholder="Additional Notes"></textarea>
 
-        <button type="button"
+        <!-- BUTTON -->
+
+        <button
+        type="button"
         onclick="submitOrder()">
+
             Place Order
+
         </button>
 
     </form>
@@ -241,7 +531,12 @@
 </section>
 
 <footer>
-    <p>© 2026 NovaPhones. All Rights Reserved.</p>
+
+    <p>
+        © 2026 GigiPlug.
+        All Rights Reserved.
+    </p>
+
 </footer>
 
 <script src="js/app.js"></script>

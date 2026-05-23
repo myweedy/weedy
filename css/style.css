@@ -10,6 +10,11 @@ body{
     color:#222;
 }
 
+img{
+    max-width:100%;
+    display:block;
+}
+
 /* NAVBAR */
 
 header{
@@ -658,6 +663,214 @@ footer{
     line-height:1.7;
 }
 
+/* FILE UPLOAD */
+
+.upload-box{
+
+    background:#f8f8f8;
+
+    border:2px dashed #ccc;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+}
+
+.upload-box label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.upload-box input{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:8px;
+
+}
+
+.upload-note{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+/* SUCCESS PAGE */
+
+.success-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#f5f5f5;
+
+}
+
+.success-card{
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    max-width:600px;
+
+    width:100%;
+
+    animation:fadeIn 0.5s ease;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+}
+
+.success-icon{
+
+    width:100px;
+
+    height:100px;
+
+    background:#00bfff;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:50px;
+
+    margin:0 auto 25px;
+
+}
+
+.success-card h1{
+
+    margin-bottom:20px;
+
+}
+
+.success-card p{
+
+    margin-bottom:15px;
+
+    line-height:1.7;
+
+}
+
+/* COPY BUTTON */
+
+.wallet-box{
+
+    background:#111;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin:15px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    word-break:break-all;
+
+}
+
+.copy-btn{
+
+    background:#00bfff;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+    flex-shrink:0;
+
+}
+
+.copy-btn:hover{
+
+    background:#009acd;
+
+    transform:scale(1.05);
+
+}
+
+/* DELIVERY BOX */
+
+.delivery-box{
+
+    background:#f8f8f8;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+}
+
+.delivery-box h3{
+
+    margin-bottom:15px;
+
+    color:#555;
+
+}
+
+.delivery-box h2{
+
+    font-size:30px;
+
+}
+
 
 
 /* MOBILE */
@@ -666,9 +879,11 @@ footer{
    MOBILE RESPONSIVE
 ========================= */
 
-@media(max-width:768px){
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
-    /* BODY */
+@media(max-width:768px){
 
     body{
         overflow-x:hidden;
@@ -680,15 +895,18 @@ footer{
 
         flex-direction:column;
 
-        padding:20px;
+        text-align:center;
 
         gap:15px;
 
-        text-align:center;
+        padding:20px;
+
     }
 
     .logo{
+
         font-size:24px;
+
     }
 
     nav{
@@ -702,11 +920,15 @@ footer{
         gap:15px;
 
         margin-top:10px;
+
     }
 
     nav a{
+
         margin-left:0;
+
         font-size:15px;
+
     }
 
     /* HERO */
@@ -720,11 +942,13 @@ footer{
         padding:50px 20px;
 
         gap:30px;
+
     }
 
     .hero-text{
 
         width:100%;
+
     }
 
     .hero-text h1{
@@ -732,11 +956,13 @@ footer{
         font-size:34px;
 
         line-height:1.3;
+
     }
 
     .hero-text p{
 
         font-size:16px;
+
     }
 
     .hero-image img{
@@ -744,55 +970,47 @@ footer{
         width:100%;
 
         max-width:350px;
+
     }
 
-    /* FEATURES */
+    /* SECTIONS */
 
-    .features{
-
-        padding:40px 20px;
-    }
-
-    .feature-card{
-
-        padding:25px;
-    }
-
-    /* PRODUCTS */
-
+    .features,
     .popular,
     .shop-page,
     .cart-page,
     .checkout-page{
 
         padding:40px 20px;
+
     }
+
+    /* PRODUCTS */
 
     .products{
 
         grid-template-columns:1fr;
 
         gap:25px;
+
     }
 
     .product{
 
         padding:18px;
+
     }
 
     .product img{
 
         height:280px;
-    }
 
-    .product h3{
-
-        font-size:20px;
     }
 
     .product button{
 
         width:100%;
+
     }
 
     /* CART */
@@ -801,9 +1019,8 @@ footer{
 
         flex-direction:column;
 
-        align-items:center;
-
         text-align:center;
+
     }
 
     .cart-item img{
@@ -811,11 +1028,15 @@ footer{
         width:100%;
 
         max-width:250px;
+
+        margin:auto;
+
     }
 
     .qty-box{
 
         justify-content:center;
+
     }
 
     .cart-summary{
@@ -825,26 +1046,16 @@ footer{
         align-items:stretch;
 
         text-align:center;
+
     }
 
     .cart-summary .btn{
 
         width:100%;
+
     }
 
-    /* CHECKOUT */
-
-    form{
-
-        padding:25px;
-    }
-
-    form button{
-
-        width:100%;
-    }
-
-    /* PREVIEW MODAL */
+    /* PREVIEW */
 
     .preview-content{
 
@@ -855,6 +1066,7 @@ footer{
         max-height:90vh;
 
         overflow-y:auto;
+
     }
 
     .preview-content img{
@@ -864,16 +1076,19 @@ footer{
         height:300px;
 
         object-fit:cover;
+
     }
 
     .preview-details{
 
         padding:20px;
+
     }
 
     .preview-buttons{
 
         flex-direction:column;
+
     }
 
     .preview-buttons button,
@@ -882,6 +1097,7 @@ footer{
         width:100%;
 
         text-align:center;
+
     }
 
     .close-preview{
@@ -891,6 +1107,7 @@ footer{
         right:20px;
 
         font-size:35px;
+
     }
 
     /* PAYMENT */
@@ -898,16 +1115,55 @@ footer{
     .payment-box{
 
         padding:20px;
+
     }
 
     .payment-qr{
 
         width:180px;
+
     }
 
     .wallet-box{
 
-        font-size:12px;
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .copy-btn{
+
+        width:100%;
+
+    }
+
+    .giftcard-image{
+
+        width:100%;
+
+    }
+
+    /* FORMS */
+
+    form{
+
+        padding:25px;
+
+    }
+
+    form button{
+
+        width:100%;
+
+    }
+
+    form input,
+    form textarea,
+    form select{
+
+        font-size:16px;
+
     }
 
     /* CONTACT BANNER */
@@ -917,18 +1173,21 @@ footer{
         padding:40px 20px;
 
         text-align:center;
+
     }
 
     .contact-banner-text h2{
 
         font-size:28px;
+
     }
 
     .contact-buttons{
 
+        width:100%;
+
         justify-content:center;
 
-        width:100%;
     }
 
     .contact-btn{
@@ -936,6 +1195,25 @@ footer{
         width:100%;
 
         text-align:center;
+
+    }
+
+    /* SUCCESS */
+
+    .success-card{
+
+        padding:30px 20px;
+
+    }
+
+    .success-icon{
+
+        width:80px;
+
+        height:80px;
+
+        font-size:40px;
+
     }
 
     /* FOOTER */
@@ -945,6 +1223,7 @@ footer{
         padding:25px 20px;
 
         font-size:14px;
+
     }
 
 }

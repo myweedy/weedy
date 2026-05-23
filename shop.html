@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - NovaPhones</title>
+    <title>Shop - GigiPlug</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,7 +11,7 @@
 
 <header>
 
-    <div class="logo">NovaPhones</div>
+    <div class="logo">GigiPlug</div>
 
     <nav>
         <a href="index.html">Home</a>
@@ -26,13 +26,13 @@
 
 <section class="shop-page">
 
-    <h1>Latest Smartphones</h1>
+    <h1><a href="index.html#cb">Some are'nt listed contact us if you can't find what you need</a></h1>
     <div class="search-box">
 
         <input
         type="text"
         id="searchInput"
-        placeholder="Search phones..."
+        placeholder="Search products..."
         onkeyup="searchProducts()">
 
     </div>
@@ -70,11 +70,37 @@
                 <a href="mailto:youremail@example.com"
                 class="contact-btn email-btn">
 
-                    Email
+                    Email: Slingards@proton.me
 
                 </a>
 
             </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/Ecstasy-tablets.jpeg"
+            onclick="openPreview(
+            'images/Ecstasy-tablets.jpeg',
+            'Ecstasy Pills 1g',
+            '$70',
+            'High efficiency one taste one shake oder now from gigi available in various forms.'
+            )">
+
+            <h3>Ecstasy Pills 1g</h3>
+
+            <p>$70</p>
+
+            <button onclick="addToCart(
+            'Ecstasy Pills 1g',
+            70,
+            'images/Ecstasy-tablets.jpeg'
+            )">
+                Add To Cart
+            </button>
 
         </div>
         
@@ -85,19 +111,45 @@
             <img src="images/cocaine.jpg"
             onclick="openPreview(
             'images/cocaine.jpg',
-            'Asus ROG Phone 9',
-            '$1399',
-            'Gaming beast with powerful cooling and ultra fast display.'
+            'Pure coke 1g',
+            '$90',
+            'Pure and natural cokes only available with gigi in any form you want.'
             )">
 
-            <h3>Asus ROG Phone 9</h3>
+            <h3>Pure coke 1g</h3>
 
-            <p>$1399</p>
+            <p>$90</p>
 
             <button onclick="addToCart(
-            'Asus ROG Phone 9',
-            1399,
+            'Pure coke 1g',
+            90,
             'images/cocaine.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+                <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/lsd.jpg"
+            onclick="openPreview(
+            'images/lsd.jpg',
+            'LSD 1g',
+            '$60',
+            'Pure and natural LSD only available with gigi in any form you want.'
+            )">
+
+            <h3>LSD 1g</h3>
+
+            <p>$60</p>
+
+            <button onclick="addToCart(
+            'LSD 1g',
+            60,
+            'images/lsd.jpg'
             )">
                 Add To Cart
             </button>
@@ -111,18 +163,18 @@
             <img src="images/Zkittlez.jpg"
             onclick="openPreview(
             'images/Zkittlez.jpg',
-            'iPhone 15 Pro Max',
-            '$1199',
-            'Powerful Apple flagship with premium cameras and ultra smooth performance.'
+            'Zkittlez 1g',
+            '$25',
+            'Get zapped with strong Zkittlez. Add to cart to get one now'
             )">
 
-            <h3>iPhone 15 Pro Max</h3>
+            <h3>Zkittlez 1g</h3>
 
-            <p>$1199</p>
+            <p>$25</p>
 
             <button onclick="addToCart(
-            'iPhone 15 Pro Max',
-            1199,
+            'Zkittlez',
+            25,
             'images/Zkittlez.jpg'
             )">
                 Add To Cart
@@ -137,18 +189,18 @@
             <img src="images/white-widow.jpeg"
             onclick="openPreview(
             'images/white-widow.jpeg',
-            'Samsung Galaxy S25 Ultra',
-            '$1299',
-            'Premium Android flagship with stunning display and advanced camera system.'
+            'white Widow 1g',
+            '$30',
+            'Widow on high demans good qualities.'
             )">
 
-            <h3>Samsung Galaxy S25 Ultra</h3>
+            <h3>white Widow 1g</h3>
 
-            <p>$1299</p>
+            <p>$30</p>
 
             <button onclick="addToCart(
-            'Samsung Galaxy S25 Ultra',
-            1299,
+            'white Widow 1g',
+            30,
             'images/white-widow.jpeg'
             )">
                 Add To Cart
@@ -163,18 +215,18 @@
             <img src="images/vape.jpg"
             onclick="openPreview(
             'images/vape.jpg',
-            'Google Pixel 10 Pro',
-            '$899',
-            'Clean Android experience with amazing AI powered photography.'
+            'Vapes',
+            '$45',
+            'powerful Vapes/Pens, Sinks into your soul deeply oder now.'
             )">
 
-            <h3>Google Pixel 10 Pro</h3>
+            <h3>vapes/pens</h3>
 
-            <p>$899</p>
+            <p>$45</p>
 
             <button onclick="addToCart(
-            'Google Pixel 10 Pro',
-            899,
+            'Papes/Pens',
+            45,
             'images/vape.jpg'
             )">
                 Add To Cart
@@ -189,18 +241,18 @@
             <img src="images/purple-haze.jpeg"
             onclick="openPreview(
             'images/purple-haze.jpeg',
-            'Xiaomi 15 Ultra',
-            '$799',
-            'Fast performance smartphone with premium design and battery life.'
+            'Purple Haze 1g',
+            '$45',
+            'Fast performance, quality moods, Stay high on purple .'
             )">
 
-            <h3>Xiaomi 15 Ultra</h3>
+            <h3>Purple Haze 1g</h3>
 
-            <p>$799</p>
+            <p>$45</p>
 
             <button onclick="addToCart(
-            'Xiaomi 15 Ultra',
-            799,
+            'Purple Haze 1g',
+            45,
             'images/purple-haze.jpeg'
             )">
                 Add To Cart
@@ -215,18 +267,18 @@
             <img src="images/pinkleechyvape.jpg"
             onclick="openPreview(
             'images/pinkleechyvape.jpg',
-            'OnePlus 14',
-            '$749',
-            'Smooth fast smartphone designed for performance lovers.'
+            'Pink Leechy Vapes',
+            '$50',
+            'Yummy pinky leeky oder yours now.'
             )">
 
-            <h3>OnePlus 14</h3>
+            <h3>Pink Leechy Vapes</h3>
 
-            <p>$749</p>
+            <p>$50</p>
 
             <button onclick="addToCart(
-            'OnePlus 14',
-            749,
+            'Pink Leechy Vapes',
+            50,
             'images/pinkleechyvape.jpg'
             )">
                 Add To Cart
@@ -241,18 +293,18 @@
             <img src="images/pinkleechy.avif"
             onclick="openPreview(
             'images/pinkleechy.avif',
-            'Huawei Mate 70',
-            '$999',
-            'Elegant smartphone with premium camera technology.'
+            'Pink Leechy',
+            '$30',
+            'Oder one now and come back later after a knock down, strong Leechy form gigi.'
             )">
 
-            <h3>Huawei Mate 70</h3>
+            <h3>Pink Leechy</h3>
 
-            <p>$999</p>
+            <p>$30</p>
 
             <button onclick="addToCart(
             'Huawei Mate 70',
-            999,
+            30,
             'images/pinkleechy.avif'
             )">
                 Add To Cart
@@ -267,19 +319,69 @@
             <img src="images/og-kush.webp"
             onclick="openPreview(
             'images/og-kush.webp',
-            'Nothing Phone 3',
-            '$699',
-            'Unique transparent design with premium performance.'
+            'OG Kush 1g',
+            '$40',
+            'Unique flavour with premium performance knocks you real good.'
             )">
 
-            <h3>Nothing Phone 3</h3>
+            <h3>OG Kush 1g</h3>
 
-            <p>$699</p>
+            <p>$40</p>
 
             <button onclick="addToCart(
-            'Nothing Phone 3',
-            699,
+            'OG Kush 1g',
+            40,
             'images/og-kush.webp'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+                <!-- PRODUCT -->
+
+        <div class="product fade-in">
+
+            <img src="images/fruit-flambee.jpg"
+            onclick="openPreview(
+            'images/fruit-flambee.jpg',
+            'Fruit Flambee 1g',
+            '$30',
+            'Fast performance, quality moods, Stay high on Fruit Flambee .'
+            )">
+
+            <h3>Fruit Flambee 1g</h3>
+
+            <p>$30</p>
+
+            <button onclick="addToCart(
+            'Fruit Flambee 1g',
+            30,
+            'images/fruit-flambee.jpg'
+            )">
+                Add To Cart
+            </button>
+
+        </div>
+
+        <div class="product fade-in">
+
+            <img src="images/THC-cbd vape-pen-pineapple-express-sativa.webp"
+            onclick="openPreview(
+            'images/THC-cbd vape-pen-pineapple-express-sativa.webp',
+            'THC vape-pen-pineapple-express-sativa 1g',
+            '$45',
+            'Fast performance, quality moods, Stay high on THC vape-pen-pineapple-express-sativa... .'
+            )">
+
+            <h3>THC vape-pen-pineapple-express-sativa 1g</h3>
+
+            <p>$45</p>
+
+            <button onclick="addToCart(
+            'THC vape-pen-pineapple-express-sativa 1g',
+            45,
+            'images/THC-cbd vape-pen-pineapple-express-sativa.webp'
             )">
                 Add To Cart
             </button>
@@ -291,18 +393,18 @@
             <img src="images/cookies.jpg"
             onclick="openPreview(
             'images/cookies.jpg',
-            'Asus ROG Phone 9',
-            '$1399',
-            'Gaming beast with powerful cooling and ultra fast display.'
+            'Cookies',
+            '$25',
+            'Yummy cookies with powerful chilling and ultra fast capabilities available in specs.'
             )">
 
-            <h3>Asus ROG Phone 9</h3>
+            <h3>Cookies</h3>
 
-            <p>$1399</p>
+            <p>$25</p>
 
             <button onclick="addToCart(
-            'Asus ROG Phone 9',
-            1399,
+            'Cookies',
+            25,
             'images/cookies.jpg'
             )">
                 Add To Cart
@@ -354,7 +456,7 @@
 </div>
 
 <footer>
-    <p>© 2026 NovaPhones. All Rights Reserved.</p>
+    <p>© 2026 GigiPlug. All Rights Reserved.</p>
 </footer>
 
 <script src="js/app.js"></script>

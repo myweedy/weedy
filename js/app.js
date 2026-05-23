@@ -2,7 +2,8 @@
    CART STORAGE
 ========================= */
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
 
 
 /* =========================
@@ -98,11 +99,13 @@ function displayCart(){
 
         if(cartTotal){
 
-            cartTotal.innerHTML = "";
+            cartTotal.innerHTML =
+            "Total: $0";
 
         }
 
         return;
+
     }
 
     cart.forEach((item,index)=>{
@@ -122,8 +125,10 @@ function displayCart(){
                 <p>$${item.price}</p>
 
                 <p>
+
                     Subtotal:
                     $${item.price * item.quantity}
+
                 </p>
 
                 <div class="qty-box">
@@ -140,7 +145,8 @@ function displayCart(){
 
                 </div>
 
-                <button class="remove-btn"
+                <button
+                class="remove-btn"
                 onclick="removeItem(${index})">
 
                     Remove
@@ -152,18 +158,17 @@ function displayCart(){
         </div>
 
         `;
+
     });
 
     if(cartTotal){
 
-        cartTotal.innerHTML = `
-            Total: $${total}
-        `;
+        cartTotal.innerHTML =
+        `Subtotal: $${total}`;
 
     }
 
 }
-
 
 /* =========================
    REMOVE ITEM
@@ -300,8 +305,6 @@ function openPreview(
     .getElementById("previewDescription")
     .innerText = description;
 
-    /* PREVIEW BUTTON */
-
     let btn =
     document.getElementById("previewCartBtn");
 
@@ -348,8 +351,6 @@ function showPaymentDetails(){
     .getElementById("paymentMethod")
     .value;
 
-    /* HIDE ALL */
-
     document
     .getElementById("btcBox")
     .style.display = "none";
@@ -365,8 +366,6 @@ function showPaymentDetails(){
     document
     .getElementById("giftcardBox")
     .style.display = "none";
-
-    /* SHOW SELECTED */
 
     if(method === "btc"){
 
@@ -425,6 +424,7 @@ function showContactField(){
         <input
         type="text"
         id="contactValue"
+        name="contact_value"
         placeholder="Enter WhatsApp Number"
         required>
 
@@ -439,6 +439,7 @@ function showContactField(){
         <input
         type="text"
         id="contactValue"
+        name="contact_value"
         placeholder="Enter Signal Username or Number"
         required>
 
@@ -453,6 +454,7 @@ function showContactField(){
         <input
         type="email"
         id="contactValue"
+        name="contact_value"
         placeholder="Enter Email Address"
         required>
 
@@ -464,10 +466,13 @@ function showContactField(){
 
 
 /* =========================
-   TELEGRAM ORDER
+   SUBMIT ORDER
 ========================= */
 
 async function submitOrder(){
+
+    let form =
+    document.querySelector("form");
 
     let name =
     document
@@ -508,6 +513,8 @@ async function submitOrder(){
         return;
     }
 
+    /* ORDER TEXT */
+
     let orderText = "";
 
     cart.forEach(item => {
@@ -527,6 +534,8 @@ $${item.price}
 `;
 
     });
+
+    /* TELEGRAM MESSAGE */
 
     let message = `
 
@@ -550,6 +559,8 @@ ${orderText}
 
 `;
 
+    /* SEND TO TELEGRAM */
+
     fetch("/.netlify/functions/telegram",{
 
         method:"POST",
@@ -566,28 +577,101 @@ ${orderText}
 
     .then(res => res.json())
 
-    .then(data => {
+    .then(async data => {
 
-        alert(
-            "Order submitted successfully"
-        );
+        /* SEND FILE TO NETLIFY */
+
+        let formData =
+        new FormData(form);
+
+        await fetch("/",{
+
+            method:"POST",
+
+            body:formData
+
+        });
+
+        /* CLEAR CART */
 
         localStorage.removeItem("cart");
 
+        /* REDIRECT */
+
         window.location.href =
-        "index.html";
+        "success.html";
 
     })
 
     .catch(error => {
 
         alert(
-            "Error sending order"
+            "Error submitting order"
         );
 
         console.log(error);
 
     });
+
+}
+
+
+/* =========================
+   SEARCH PRODUCTS
+========================= */
+
+function searchProducts(){
+
+    let input =
+    document.getElementById("searchInput");
+
+    if(!input) return;
+
+    let filter =
+    input.value.toLowerCase();
+
+    let products =
+    document.querySelectorAll(".product");
+
+    let noResults =
+    document.getElementById("noResults");
+
+    let found = false;
+
+    products.forEach(product => {
+
+        let title =
+        product.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+        if(title.includes(filter)){
+
+            product.style.display = "block";
+
+            found = true;
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    if(noResults){
+
+        if(found){
+
+            noResults.style.display = "none";
+
+        } else {
+
+            noResults.style.display = "block";
+
+        }
+
+    }
 
 }
 
@@ -601,112 +685,127 @@ updateCartCount();
 displayCart();
 
 /* =========================
-   SEARCH PRODUCTS
+   COPY ADDRESS
 ========================= */
 
-function searchProducts(){
+function copyAddress(id){
 
-    let input =
-    document.getElementById("searchInput");
+    let text =
+    document
+    .getElementById(id)
+    .innerText;
 
-    if(!input) return;
+    navigator.clipboard
+    .writeText(text)
 
-    let filter =
-    input.value.toLowerCase();
+    .then(()=>{
 
-    let products =
-    document.querySelectorAll(".product");
+        showPopup(
+            "Wallet address copied"
+        );
 
-    let noResults =
-    document.getElementById("noResults");
+    })
 
-    let found = false;
+    .catch(()=>{
 
-    products.forEach(product => {
-
-        let title =
-        product.querySelector("h3")
-        .innerText
-        .toLowerCase();
-
-        if(title.includes(filter)){
-
-            product.style.display = "block";
-
-            found = true;
-
-        } else {
-
-            product.style.display = "none";
-
-        }
+        alert(
+            "Failed to copy address"
+        );
 
     });
 
-    /* SHOW MESSAGE */
+}
 
-    if(found){
 
-        noResults.style.display = "none";
 
-    } else {
+/* =========================
+   DELIVERY CALCULATION
+========================= */
 
-        noResults.style.display = "block";
+function calculateDelivery(){
+
+    let country =
+    document
+    .getElementById("countrySelect")
+    .value;
+
+    let paymentMethod =
+    document
+    .getElementById("paymentMethod")
+    .value;
+
+    let deliveryText =
+    document
+    .getElementById("deliveryText");
+
+    let finalTotal =
+    document
+    .getElementById("finalTotal");
+
+    let cart =
+    JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+    let subtotal = 0;
+
+    cart.forEach(item => {
+
+        subtotal +=
+        item.price * item.quantity;
+
+    });
+
+    /* NO COUNTRY */
+
+    if(!country){
+
+        deliveryText.innerHTML = `
+        Delivery Fee:
+        Select country first
+        `;
+
+        finalTotal.innerHTML = `
+        Final Total:
+        $${subtotal}
+        `;
+
+        return;
 
     }
 
-}/* =========================
-   SEARCH PRODUCTS
-========================= */
+    /* DELIVERY */
 
-function searchProducts(){
+    let deliveryFee = 20;
 
-    let input =
-    document.getElementById("searchInput");
+    if(country === "United States"){
 
-    if(!input) return;
+        deliveryFee = 10;
 
-    let filter =
-    input.value.toLowerCase();
+    }
 
-    let products =
-    document.querySelectorAll(".product");
+    /* TOTAL */
 
-    let noResults =
-    document.getElementById("noResults");
+    let total =
+    subtotal + deliveryFee;
 
-    let found = false;
+    /* UPDATE UI */
 
-    products.forEach(product => {
+    deliveryText.innerHTML = `
+    Delivery Fee: $${deliveryFee}
+    `;
 
-        let title =
-        product.querySelector("h3")
-        .innerText
-        .toLowerCase();
+    finalTotal.innerHTML = `
+    Final Total: $${total}
+    `;
 
-        if(title.includes(filter)){
+    /* OPTIONAL PAYMENT INFO */
 
-            product.style.display = "block";
+    if(paymentMethod){
 
-            found = true;
-
-        } else {
-
-            product.style.display = "none";
-
-        }
-
-    });
-
-    /* SHOW MESSAGE */
-
-    if(found){
-
-        noResults.style.display = "none";
-
-    } else {
-
-        noResults.style.display = "block";
+        showPopup(
+            `Total payable: $${total}`
+        );
 
     }
 
